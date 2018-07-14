@@ -1,6 +1,6 @@
 # Vaadin Iron Dropdown
 
-Vaadin 10 Java integration of https://github.com/PolymerElements/iron-dropdown
+Vaadin 10 Java integration of https://github.com/PolymerElements/paper-menu-button
 
 ## Development instructions
 
