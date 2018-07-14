@@ -2,6 +2,7 @@ package com.github.appreciated;
 
 import com.github.appreciated.papermenubutton.PaperMenuButton;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.HtmlImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
@@ -10,6 +11,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
 @Route("")
+@HtmlImport("frontend://styles/custom-styles.html")
 public class DemoView extends Div {
 
     public DemoView() {
@@ -18,7 +20,6 @@ public class DemoView extends Div {
                 new Button("Open"),
                 getContentLayout()
         );
-        //ironDropdown.getContent().getElement().getStyle().set("margin-top", "64px");
 
         VerticalLayout contentHolder = new VerticalLayout(ironDropdown);
         contentHolder.setSizeFull();

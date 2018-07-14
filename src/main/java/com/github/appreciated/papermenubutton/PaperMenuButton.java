@@ -13,7 +13,6 @@ public class PaperMenuButton extends Component implements HasStyle {
     private Component content;
     private Component button;
 
-
     public PaperMenuButton(Component button, Component content) {
         setButton(button);
         setContent(content);
