@@ -8,5 +8,6 @@ import com.vaadin.flow.component.dependency.HtmlImport;
 public class StyledPaperMenuButton extends PaperMenuButton {
     public StyledPaperMenuButton(Component button, Component content) {
         super(button, content);
+        getElement().getClassList().add("styled");
     }
 }

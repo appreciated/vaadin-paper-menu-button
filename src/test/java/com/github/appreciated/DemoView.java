@@ -33,6 +33,9 @@ public class DemoView extends Div {
         paperMenuButton.setVerticalAlignment(VerticalAlignment.TOP);
         paperMenuButton.setHorizontalAlignment(HorizontalAlignment.RIGHT);
 
+        styledPaperMenuButton.setVerticalAlignment(VerticalAlignment.TOP);
+        styledPaperMenuButton.setHorizontalAlignment(HorizontalAlignment.RIGHT);
+
         VerticalLayout contentHolder = new VerticalLayout(paperMenuButton, styledPaperMenuButton);
         contentHolder.setSizeFull();
         contentHolder.setAlignItems(FlexComponent.Alignment.CENTER);
