@@ -15,7 +15,6 @@ import com.vaadin.flow.router.Route;
 public class DemoView extends Div {
 
     public DemoView() {
-
         PaperMenuButton ironDropdown = new PaperMenuButton(
                 new Button("Open"),
                 getContentLayout()
@@ -35,6 +34,4 @@ public class DemoView extends Div {
         content.setHeight("300px");
         return new HorizontalLayout(content);
     }
-
-
 }
