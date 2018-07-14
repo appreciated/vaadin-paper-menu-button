@@ -1,0 +1,6 @@
+# Created by .ignore support plugin (hsz.mobi)
+/.idea/
+*.iml
+/vaadin-iron-dropdown/target/
+/vaadin-iron-dropdown-demo/target/
+/vaadin-iron-dropdown/.idea/
