@@ -1,8 +1,9 @@
 package com.github.appreciated;
 
+import com.github.appreciated.papermenubutton.HorizontalAlignment;
 import com.github.appreciated.papermenubutton.PaperMenuButton;
+import com.github.appreciated.papermenubutton.VerticalAlignment;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.dependency.HtmlImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
@@ -11,10 +12,11 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
 @Route("")
-@HtmlImport("frontend://styles/custom-styles.html")
+
 public class DemoView extends Div {
 
     private final PaperMenuButton paperMenuButton;
+    private final StyledPaperMenuButton styledPaperMenuButton;
 
 
     public DemoView() {
@@ -23,7 +25,15 @@ public class DemoView extends Div {
                 getContentLayout()
         );
 
-        VerticalLayout contentHolder = new VerticalLayout(paperMenuButton);
+        styledPaperMenuButton = new StyledPaperMenuButton(
+                new Button("Open"),
+                getContentLayout()
+        );
+
+        paperMenuButton.setVerticalAlignment(VerticalAlignment.TOP);
+        paperMenuButton.setHorizontalAlignment(HorizontalAlignment.RIGHT);
+
+        VerticalLayout contentHolder = new VerticalLayout(paperMenuButton, styledPaperMenuButton);
         contentHolder.setSizeFull();
         contentHolder.setAlignItems(FlexComponent.Alignment.CENTER);
         contentHolder.setJustifyContentMode(FlexComponent.JustifyContentMode.CENTER);
