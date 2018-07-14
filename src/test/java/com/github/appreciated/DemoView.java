@@ -19,7 +19,6 @@ public class DemoView extends Div {
                 getContentLayout()
         );
         //ironDropdown.getContent().getElement().getStyle().set("margin-top", "64px");
-        //ironDropdown.getContentWrapper().getStyle().set("box-shadow", "0px 2px 6px #ccc");
 
         VerticalLayout contentHolder = new VerticalLayout(ironDropdown);
         contentHolder.setSizeFull();

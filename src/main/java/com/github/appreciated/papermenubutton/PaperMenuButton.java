@@ -14,11 +14,10 @@ public class PaperMenuButton extends Component implements HasStyle {
     private Component button;
 
 
-
     public PaperMenuButton(Component button, Component content) {
         setButton(button);
         setContent(content);
-        setVerticalAlignment(VerticalAlignment.BOTTOM);
+        setVerticalAlignment(VerticalAlignment.TOP);
         setHorizontalAlignment(HorizontalAlignment.LEFT);
     }
 
