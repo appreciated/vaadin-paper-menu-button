@@ -18,6 +18,7 @@ public class PaperMenuButton extends Component implements HasStyle {
         setContent(content);
         setVerticalAlignment(VerticalAlignment.TOP);
         setHorizontalAlignment(HorizontalAlignment.LEFT);
+        getElement().synchronizeProperty("opened", "opened-changed");
     }
 
     public void setContent(Component content) {
@@ -54,6 +55,10 @@ public class PaperMenuButton extends Component implements HasStyle {
      */
     public Component getContent() {
         return content;
+    }
+
+    public boolean isOpened() {
+        return getElement().getProperty("opened", false);
     }
 
     /**

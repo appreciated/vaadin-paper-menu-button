@@ -14,18 +14,32 @@ import com.vaadin.flow.router.Route;
 @HtmlImport("frontend://styles/custom-styles.html")
 public class DemoView extends Div {
 
+    private final PaperMenuButton paperMenuButton;
+
+
     public DemoView() {
-        PaperMenuButton ironDropdown = new PaperMenuButton(
+        paperMenuButton = new PaperMenuButton(
                 new Button("Open"),
                 getContentLayout()
         );
 
-        VerticalLayout contentHolder = new VerticalLayout(ironDropdown);
+        VerticalLayout contentHolder = new VerticalLayout(paperMenuButton);
         contentHolder.setSizeFull();
         contentHolder.setAlignItems(FlexComponent.Alignment.CENTER);
         contentHolder.setJustifyContentMode(FlexComponent.JustifyContentMode.CENTER);
         add(contentHolder);
         setSizeFull();
+
+        new Thread(() -> {
+            while (true) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("isOpened = " + paperMenuButton.isOpened());
+            }
+        }).start();
     }
 
     public HorizontalLayout getContentLayout() {
