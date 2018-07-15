@@ -6,7 +6,7 @@
     <groupId>com.github.appreciated</groupId>
     <artifactId>vaadin-paper-menu-button</artifactId>
     <version>0.5.0</version>
-    <name>Vaadin Paper Menu Button</name>
+    <name>PaperMenuButton</name>
     <description>Integration of paper-menu-button for Vaadin 10</description>
     <packaging>jar</packaging>
 
