@@ -39,7 +39,6 @@ public class PaperMenuButton extends Component implements HasStyle {
         getElement().appendChild(button.getElement());
     }
 
-
     public void setVerticalAlignment(VerticalAlignment verticalAlignment) {
         getElement().setAttribute("vertical-align", verticalAlignment.getAlignment());
     }
@@ -48,11 +47,6 @@ public class PaperMenuButton extends Component implements HasStyle {
         getElement().setAttribute("horizontal-align", horizontalAlignment.getAlignment());
     }
 
-    /**
-     * To allow to style the content wrapper
-     *
-     * @return the div containing the content
-     */
     public Component getContent() {
         return content;
     }
@@ -61,11 +55,6 @@ public class PaperMenuButton extends Component implements HasStyle {
         return getElement().getProperty("opened", false);
     }
 
-    /**
-     * To allow to style the button wrapper
-     *
-     * @return the div containing the "button"-wrapper
-     */
     public Component getButton() {
         return button;
     }
