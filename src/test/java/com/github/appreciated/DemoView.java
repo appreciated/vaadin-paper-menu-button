@@ -3,16 +3,17 @@ package com.github.appreciated;
 import com.github.appreciated.papermenubutton.HorizontalAlignment;
 import com.github.appreciated.papermenubutton.PaperMenuButton;
 import com.github.appreciated.papermenubutton.VerticalAlignment;
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.page.Push;
 import com.vaadin.flow.router.Route;
 
 @Route("")
-
+@Push
 public class DemoView extends Div {
 
     private final PaperMenuButton paperMenuButton;
@@ -44,21 +45,36 @@ public class DemoView extends Div {
         setSizeFull();
 
         new Thread(() -> {
-            while (true) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("isOpened = " + paperMenuButton.isOpened());
+            //while (true) {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            System.out.println("isOpened = " + styledPaperMenuButton.isOpened());
+            DemoView.this.getUI().ifPresent(ui -> ui.access(() -> {
+                styledPaperMenuButton.setContent(new VerticalLayout(getContent(), getContent()));
+            }));
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("isOpened = " + styledPaperMenuButton.isOpened());
+            DemoView.this.getUI().ifPresent(ui -> ui.access(() -> {
+                styledPaperMenuButton.setContent(new VerticalLayout(getContent(), getContent(), getContent()));
+            }));
         }).start();
     }
 
-    public HorizontalLayout getContentLayout() {
-        Span content = new Span("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.");
+    public VerticalLayout getContentLayout() {
+        return new VerticalLayout(getContent());
+    }
+
+    Component getContent() {
+        Span content = new Span("Lorem ipsum dolor sit amet, consetetur sadipscing elitr sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.");
         content.setWidth("300px");
-        content.setHeight("300px");
-        return new HorizontalLayout(content);
+        content.setHeight("100px");
+        return content;
     }
 }
