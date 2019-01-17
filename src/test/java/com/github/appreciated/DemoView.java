@@ -6,7 +6,6 @@ import com.github.appreciated.papermenubutton.VerticalAlignment;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.page.Push;
@@ -53,7 +52,7 @@ public class DemoView extends Div {
             }
             System.out.println("isOpened = " + styledPaperMenuButton.isOpened());
             DemoView.this.getUI().ifPresent(ui -> ui.access(() -> {
-                styledPaperMenuButton.setContent(new VerticalLayout(getContent(), getContent()));
+                styledPaperMenuButton.setContentComponent(new VerticalLayout(getContent(), getContent()));
             }));
             try {
                 Thread.sleep(3000);
@@ -62,9 +61,9 @@ public class DemoView extends Div {
             }
             System.out.println("isOpened = " + styledPaperMenuButton.isOpened());
             DemoView.this.getUI().ifPresent(ui -> ui.access(() -> {
-                styledPaperMenuButton.setContent(new VerticalLayout(getContent(), getContent(), getContent()));
+                styledPaperMenuButton.setContentComponent(new VerticalLayout(getContent(), getContent(), getContent()));
             }));
-        }).start();
+        });//.start();
     }
 
     public VerticalLayout getContentLayout() {
@@ -72,9 +71,13 @@ public class DemoView extends Div {
     }
 
     Component getContent() {
-        Span content = new Span("Lorem ipsum dolor sit amet, consetetur sadipscing elitr sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.");
+        /*Span content = new Span("Lorem ipsum dolor sit amet, consetetur sadipscing elitr sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.");
         content.setWidth("300px");
-        content.setHeight("100px");
-        return content;
+        content.setHeight("100px");*/
+        VerticalLayout d = new VerticalLayout();
+        for (int i = 0; i < 20; i++) {
+            d.add(new Button("Test1234"));
+        }
+        return d;
     }
 }

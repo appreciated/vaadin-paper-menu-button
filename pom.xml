@@ -5,13 +5,13 @@
 
     <groupId>com.github.appreciated</groupId>
     <artifactId>vaadin-paper-menu-button</artifactId>
-    <version>0.9.0</version>
+    <version>1.0.0</version>
     <name>PaperMenuButton</name>
-    <description>Integration of paper-menu-button for Vaadin 10</description>
+    <description>Integration of paper-menu-triggerComponent for Vaadin 10</description>
     <packaging>jar</packaging>
 
     <properties>
-        <vaadin.version>10.0.1</vaadin.version>
+        <vaadin.version>10.0.10</vaadin.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

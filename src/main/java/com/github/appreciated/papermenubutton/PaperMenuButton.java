@@ -14,33 +14,34 @@ import com.vaadin.flow.component.html.Div;
 public class PaperMenuButton extends Component implements HasStyle {
 
     private Div contentHolder;
-    private Component button;
+    private Component triggerComponent;
+    private Component contentComponent;
 
-    public PaperMenuButton(Component button, Component content) {
-        setButton(button);
-        setContent(content);
+    public PaperMenuButton(Component triggerComponent, Component contentComponent) {
+        setTriggerComponent(triggerComponent);
+        setContentComponent(contentComponent);
         setVerticalAlignment(VerticalAlignment.TOP);
         setHorizontalAlignment(HorizontalAlignment.LEFT);
         getElement().synchronizeProperty("opened", "opened-changed");
     }
 
-    public void setContent(Component content) {
+    public Component getContentComponent() {
+        return contentComponent;
+    }
+
+    public void setContentComponent(Component content) {
+        this.contentComponent = content;
         if (this.contentHolder == null) {
             contentHolder = new Div();
             this.contentHolder.getElement().setAttribute("slot", "dropdown-content");
             getElement().appendChild(contentHolder.getElement());
         }
         contentHolder.removeAll();
-        contentHolder.add(content);
+        contentHolder.add(contentComponent);
     }
 
-    public void setButton(Component button) {
-        if (this.button != null) {
-            getElement().removeChild(this.button.getElement());
-        }
-        this.button = button;
-        this.button.getElement().setAttribute("slot", "dropdown-trigger");
-        getElement().appendChild(button.getElement());
+    public Component getTriggerComponent() {
+        return triggerComponent;
     }
 
     /**
@@ -143,8 +144,13 @@ public class PaperMenuButton extends Component implements HasStyle {
         return getElement().getProperty("opened", false);
     }
 
-    public Component getButton() {
-        return button;
+    public void setTriggerComponent(Component triggerComponent) {
+        if (this.triggerComponent != null) {
+            getElement().removeChild(this.triggerComponent.getElement());
+        }
+        this.triggerComponent = triggerComponent;
+        this.triggerComponent.getElement().setAttribute("slot", "dropdown-trigger");
+        getElement().appendChild(triggerComponent.getElement());
     }
 
 }
