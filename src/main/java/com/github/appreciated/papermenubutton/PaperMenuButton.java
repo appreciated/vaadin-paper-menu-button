@@ -12,7 +12,6 @@ import com.vaadin.flow.component.html.Div;
 @NpmPackage(value = "@polymer/paper-menu-button", version = "3.0.1")
 @JavaScript("https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.2/web-animations-next-lite.min.js")
 @JsModule("@polymer/paper-menu-button/paper-menu-button.js")
-
 public class PaperMenuButton extends Component implements HasStyle {
 
     private Div contentHolder;
