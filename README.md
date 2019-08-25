@@ -1,4 +1,4 @@
-# Vaadin Iron Dropdown
+# Vaadin paper-menu-button
 
 Vaadin 10 Java integration of https://github.com/PolymerElements/paper-menu-button
 
