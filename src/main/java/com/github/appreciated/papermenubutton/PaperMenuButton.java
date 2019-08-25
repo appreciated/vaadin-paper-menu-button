@@ -3,14 +3,16 @@ package com.github.appreciated.papermenubutton;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
-import com.vaadin.flow.component.dependency.HtmlImport;
+import com.vaadin.flow.component.dependency.JavaScript;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.html.Div;
 
 @Tag("paper-menu-button")
-@HtmlImport("frontend://bower_components/paper-menu-button/paper-menu-button.html")
-@HtmlImport("frontend://bower_components/neon-animation/web-animations.html")
-/**
- */
+@NpmPackage(value = "@polymer/paper-menu-button", version = "3.0.1")
+@JavaScript("https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.2/web-animations-next-lite.min.js")
+@JsModule("@polymer/paper-menu-button/paper-menu-button.js")
+
 public class PaperMenuButton extends Component implements HasStyle {
 
     private Div contentHolder;
@@ -125,14 +127,14 @@ public class PaperMenuButton extends Component implements HasStyle {
      * Shows the dropdown content.
      */
     public void open() {
-        getElement().callFunction("open");
+        getElement().callJsFunction("open");
     }
 
     /**
      * Hides the dropdown content.
      */
     public void close() {
-        getElement().callFunction("close");
+        getElement().callJsFunction("close");
     }
 
     /**
