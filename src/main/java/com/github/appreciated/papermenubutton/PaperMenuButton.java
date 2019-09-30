@@ -17,13 +17,30 @@ public class PaperMenuButton extends Component implements HasStyle {
     private Div contentHolder;
     private Component triggerComponent;
     private Component contentComponent;
+    private boolean isOpen = false;
 
     public PaperMenuButton(Component triggerComponent, Component contentComponent) {
         setTriggerComponent(triggerComponent);
         setContentComponent(contentComponent);
         setVerticalAlignment(VerticalAlignment.TOP);
         setHorizontalAlignment(HorizontalAlignment.LEFT);
-        getElement().synchronizeProperty("opened", "opened-changed");
+        getElement().addPropertyChangeListener("opened", "opened-changed", event -> isOpen = (boolean) event.getValue());
+    }
+
+    public void setTriggerComponent(Component triggerComponent) {
+        if (this.triggerComponent != null) {
+            getElement().removeChild(this.triggerComponent.getElement());
+        }
+        this.triggerComponent = triggerComponent;
+        this.triggerComponent.getElement().setAttribute("slot", "dropdown-trigger");
+        getElement().appendChild(triggerComponent.getElement());
+    }
+
+    /**
+     * @param verticalAlignment
+     */
+    public void setVerticalAlignment(VerticalAlignment verticalAlignment) {
+        getElement().setAttribute("vertical-align", verticalAlignment.getAlignment());
     }
 
     public Component getContentComponent() {
@@ -43,13 +60,6 @@ public class PaperMenuButton extends Component implements HasStyle {
 
     public Component getTriggerComponent() {
         return triggerComponent;
-    }
-
-    /**
-     * @param verticalAlignment
-     */
-    public void setVerticalAlignment(VerticalAlignment verticalAlignment) {
-        getElement().setAttribute("vertical-align", verticalAlignment.getAlignment());
     }
 
     /**
@@ -142,16 +152,7 @@ public class PaperMenuButton extends Component implements HasStyle {
      * @return
      */
     public boolean isOpened() {
-        return getElement().getProperty("opened", false);
-    }
-
-    public void setTriggerComponent(Component triggerComponent) {
-        if (this.triggerComponent != null) {
-            getElement().removeChild(this.triggerComponent.getElement());
-        }
-        this.triggerComponent = triggerComponent;
-        this.triggerComponent.getElement().setAttribute("slot", "dropdown-trigger");
-        getElement().appendChild(triggerComponent.getElement());
+        return isOpen;
     }
 
 }
